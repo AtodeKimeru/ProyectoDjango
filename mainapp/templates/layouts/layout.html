@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        <!--titulo de cada página-->
+        {% endblock %}
+        | AtodeKimeru
+    </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <div id="logotipo">
+            <!--logo django-->     
+            <img src="{% static 'images/logo.png' %}" alt="dj">
+            <h1>Proyecto con Django | AtodeKimeru </h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'index' %}">Inicio</a>
+            </li>
+            {% for page in pages %}
+            <li>
+                <a href="{% url 'page' page.2 %}">{{ page.1 }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+            {% block content %}
+                <!--contenido que viene de templates-->
+                <strong>Contenido bloque original!</strong>
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        Master en python &copy, AtodeKimeru - {% now "d/m/Y h:m" %}
+    </footer>
+</body>
+
+</html>
