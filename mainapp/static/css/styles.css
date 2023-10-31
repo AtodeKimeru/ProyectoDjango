@@ -204,13 +204,15 @@ nav > ul > li:hover > ul > li:hover a{
     width: 40%;
 }
 
-.box form input, .box form textarea{
+.box form input, .box form label{
     display: block;
     padding: 5px;
     padding-left: 0px; 
 }
 
 .box form input[type="text"],
+.box form input[type="email"],
+.box form input[type="password"],
 .box form textarea,
 .box form select{
     width: 100%;
@@ -248,12 +250,18 @@ nav > ul > li:hover > ul > li:hover a{
     color: red;
 }
 
-.message{
+.message,
+.alert-success,
+.alert{
     padding: 20px;
     background: #207a56;
     color: white;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.alert-warning{
+    background: #a60f0f;
 }
 
 .title{
